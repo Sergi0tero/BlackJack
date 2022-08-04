@@ -28,7 +28,10 @@ body{
 }
 
 .profilesDiv{
-    display: inline-block;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-columns: min-content;
+    grid-auto-rows:min-content;
     position: absolute;
     grid-gap: 1%;
     top: 50%;
