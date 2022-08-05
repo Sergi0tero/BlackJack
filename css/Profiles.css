@@ -1,46 +1,129 @@
+#container h1{
+    font-family: 'Nanum Myeongjo', serif;
+    text-align:center;
+    height: fit-content;
+}
+
+#title{
+    text-shadow: 2px 0 rgb(0, 0, 0), -2px 0 rgb(0, 0, 0), 0 2px rgb(0, 0, 0), 0 -2px rgb(0, 0, 0),
+    1px 1px rgb(0, 0, 0), -1px -1px rgb(0, 0, 0), 1px -1px rgb(0, 0, 0), -1px 1px rgb(0, 0, 0);
+    font-size: 8em;
+    background-color: rgb(8, 46, 6);
+    color: rgb(129, 85, 41);
+}
+
 body{
     background-color: rgb(3, 97, 73);
+}
+
+#container{
+    border-bottom-left-radius:40%;
+    border-bottom-right-radius:40%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    width: 90%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    
+    background-color: rgb(12, 68, 8);
+    border-style:  solid solid dashed solid;
+    border-width: 10px;
+    border-color: rgb(129, 85, 41);
+}
+
+#agregarPerfil{
+    margin-top: 5%;
+    justify-content: center;
+    width: fit-content;
+    position: relative;
+    top: 10;
+    text-align: center;
+    transition-duration: 0.2s;
+    background-color: rgb(129, 85, 41);
+    background-image: none;
+    border: 1px solid #000;
+    border-radius: 4px;
+    box-shadow: rgb(0, 0, 0) 4px 4px 0 0,#000 4px 4px 0 1px;
+    color: rgb(10, 9, 9);
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Nanum Myeongjo', serif;
+    font-weight: bolder;
+    font-size: 14px;
+    font-weight: auto;
+    line-height: 20px;
+    padding: 12px 50px;
+}
+
+#agregarPerfil:hover {
+  background-color: rgb(82, 55, 27);
+}
+#agregarPerfil:active {
+  transform: translate(2px, 2px);
+  outline: 0;
+  box-shadow: rgb(0, 0, 0) 2px 2px 0 0, #000 2px 2px 0 1px;
 }
 
 .profile{
     position: relative;
     display: flex;
-    width: 100%;
-    height: 100%;
+    width: 20%;
     justify-content: center;
-    border: 15px;
     background-color: blanchedalmond;
     align-items: center;
     flex-direction: column;
     border-width: 50px;
     border-color: aqua;
+    resize: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
 }
 
 .profile img{
     border-radius: 50%;
     position: relative;
     width: 80%;
-    height: 70%;
+    height: 150px;
+    margin-top: 5px;
     transition: ease-in-out 0.3s;
-    z-index: 2;
 }.profile img:hover {
     border-radius: 0%;
+    cursor: pointer;
 }
 
 .profilesDiv{
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-auto-columns: min-content;
-    grid-auto-rows:min-content;
-    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: center;
     grid-gap: 1%;
-    top: 50%;
+    top: 15%;
     left: 50%;
-    min-width: 10%;
-    min-height: fit-content;
-    max-width: 80%;
+    width: 45%;
     max-height: 30%;
     transform: translate(-50%, -50%);
-    background-color: black;
-    overflow-y: scroll;
+    overflow-y:scroll;
+    background-color: rgb(12, 68, 8);
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
