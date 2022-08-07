@@ -1,3 +1,5 @@
+/*Text*/
+
 #container h1{
     font-family: 'Nanum Myeongjo', serif;
     text-align:center;
@@ -11,6 +13,8 @@
     background-color: rgb(8, 46, 6);
     color: rgb(129, 85, 41);
 }
+
+/*Containers*/
 
 body{
     background-color: rgb(3, 97, 73);
@@ -34,7 +38,26 @@ body{
     border-color: rgb(129, 85, 41);
 }
 
+.profilesDiv{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: center;
+    grid-gap: 1%;
+    top: 15%;
+    left: 50%;
+    width: 45%;
+    max-height: 30%;
+    transform: translate(-50%, -50%);
+    overflow-y:scroll;
+    background-color: rgb(12, 68, 8);
+}
+
+/*Add profiles div*/
+
 #agregarPerfil{
+  text-align: center
+}#agregarPerfil button{
     margin-top: 5%;
     justify-content: center;
     width: fit-content;
@@ -56,16 +79,15 @@ body{
     font-weight: auto;
     line-height: 20px;
     padding: 12px 50px;
-}
-
-#agregarPerfil:hover {
+}#agregarPerfil button:hover {
   background-color: rgb(82, 55, 27);
-}
-#agregarPerfil:active {
+}#agregarPerfil button:active {
   transform: translate(2px, 2px);
   outline: 0;
   box-shadow: rgb(0, 0, 0) 2px 2px 0 0, #000 2px 2px 0 1px;
 }
+
+/*Profiles div*/
 
 .profile{
     position: relative;
@@ -81,9 +103,9 @@ body{
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 10px;
-}
-
-.profile img{
+    text-decoration: none;
+    color: black;
+}.profile img{
     border-radius: 50%;
     position: relative;
     width: 80%;
@@ -95,35 +117,52 @@ body{
     cursor: pointer;
 }
 
-.profilesDiv{
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
-    justify-content: center;
-    grid-gap: 1%;
-    top: 15%;
-    left: 50%;
-    width: 45%;
-    max-height: 30%;
-    transform: translate(-50%, -50%);
-    overflow-y:scroll;
-    background-color: rgb(12, 68, 8);
+/*Pop up form*/
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
 }
+
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}.form-container .cancel {
+  background-color: red;
+}.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+/*Scrollbar*/
+
 ::-webkit-scrollbar {
   width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
+}::-webkit-scrollbar-track {
   background: #f1f1f1;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
+}::-webkit-scrollbar-thumb {
   background: #888;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
+}::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
