@@ -24,13 +24,15 @@ body{
     border-bottom-left-radius:40%;
     border-bottom-right-radius:40%;
     position: absolute;
-    display: flex;
     flex-direction: column;
     height: 90%;
     width: 90%;
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
+    align-items: center;
+    align-content: center;
+    text-align: center;
     
     background-color: rgb(12, 68, 8);
     border-style:  solid solid dashed solid;
@@ -44,13 +46,11 @@ body{
     position: relative;
     justify-content: center;
     grid-gap: 1%;
-    top: 15%;
-    left: 50%;
     width: 45%;
     max-height: 30%;
-    transform: translate(-50%, -50%);
     overflow-y:scroll;
     background-color: rgb(12, 68, 8);
+    margin: auto;
 }
 
 /*Buttons*/
