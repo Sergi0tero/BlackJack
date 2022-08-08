@@ -12,29 +12,30 @@
     <div id = "container">
         <h1 id="title">♣ BlackJack ♠</h1>
         <h1> Por favor, elija un perfil</h1>
-        <div class = "profilesDiv" data-bind="foreach: initialProfiles">
-            <a class = "profile" href = "nose.html" onclick="">
+        <div id = "profilesDiv" data-bind="foreach: initialProfiles">
+            <a class = "profile" href = "juego.html" onclick="">
                 <img data-bind = "attr : {src : imgSrc}">
                 <figcaption data-bind = "text: name"></figcaption>
                 <figcaption data-bind="text: changeToCurrency(money)"></figcaption>
             </a>
         </div>
-        <div id = "agregarPerfil">
-            <button data-bind='attr : {onclick : openForm()}'> Agregar nuevo perfil </button>
-            <div class="form-popup" id="myForm">
-                <form action="/action_page.php" class="form-container">
-                  <h1>Crear perfil</h1>
-              
-                  <label for="Nickname"><b>Nickname</b></label>
-                  <input type="text" placeholder="Escribir Nickname" name="nickname" required>
-              
-                  <label for="psw"><b>Password</b></label>
-                  <input type="password" placeholder="Enter Password" name="psw" required>
-              
-                  <button type="submit" class="btn">Login</button>
-                  <button type="button" class="btn cancel" data-bind='attr : {onclick : closeForm()}'>Close</button>
-                </form>
-              </div>
+        <div class = "buttonContainer">
+            <button class = btn> Agregar nuevo perfil </button>
+        </div>
+        <div class="form-popup" id="myForm">
+            <form class="form-container">
+                <h1>Crear perfil</h1>
+            
+                <label for="Nickname"><b>Nickname</b></label>
+                <input type="text" placeholder="Escribir Nickname" name="nickname" required></input>
+                
+                <label for="Imagen"><b>Password</b></label>
+                <input type="url" placeholder="Poner URL de la imagen" name="Imagen">
+                <div id = "acceptCancel" class="buttonContainer">
+                    <button type = "submit" class="btn crear">Crear</button>
+                    <button type = "button" class="btn cancel">Cancelar</button>
+                </div>
+            </form>
         </div>
     </div>
     <script src = "../js/lib/knockout.js"></script>

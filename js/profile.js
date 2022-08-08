@@ -42,15 +42,23 @@ var ViewModel = function(){
         }
         return PKR(money).format();
     }
-    openForm = function() {
-        console.log("llego");
-        document.getElementById("myForm").style.display = "block";
-    }
-      
-    closeForm = function() {
-        console.log("salio");
-        document.getElementById("myForm").style.display = "none";
-    }
+    var agregarCancelar = document.querySelector("#acceptCancel");
+    var agregarDiv = document.querySelector(".buttonContainer");
+    var agregarButton = agregarDiv.querySelector("button");
+    var profilesDiv = document.querySelector("#profilesDiv");
+
+    agregarButton.addEventListener("click", function(){
+        agregarButton.style.display = "none";
+        profilesDiv.style.display = "none";
+        document.querySelector(".form-container").style.display = "block";
+    })
+
+    
+    agregarCancelar.addEventListener("click", function() {
+        document.querySelector(".form-container").style.display = "none";
+        profilesDiv.style.display = "flex";
+        agregarButton.style.display = "inline-block";
+    });
 }
 
 
