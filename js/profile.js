@@ -1,16 +1,19 @@
+ //Create two default profiles
+ 
  var initialProfiles = [
     {
     name : 'Alberto',
-    imgSrc : '../img/usr/user.png',
+    imgSrc : 'img/usr/user.png',
     money : 1000000
     },
     {
     name : 'Alberta',
-    imgSrc : '../img/usr/user.png',
-    money : 120200
+    imgSrc : 'img/usr/user.png',
+    money : 1000000
     }
 ]
 
+//Createa a new profile using an object
 function Profile(data){
     this.name = data.name;
     this.money = data.money;
@@ -25,16 +28,19 @@ function ViewModel(){
     var profilesDiv = document.querySelector("#profilesDiv");
     formElements = document.querySelector("#myForm");
 
+    //Hide the profiles menu and display the new profile form
     agregarButton.addEventListener("click", function(){
         agregarButton.style.display = "none";
         profilesDiv.style.display = "none";
         formElements.style.display = "block";
     })
 
+    //Creates a new profile based on the form inputs
     crearButton.addEventListener("click", function(){
         inputs = formElements.getElementsByTagName("input");
         
-        var image = inputs[1].value != "" ? inputs[1].value : '../img/usr/user.png';
+        // If the image's url input is empty, the default image will be set on the profile
+        var image = inputs[1].value != "" ? inputs[1].value : 'img/usr/user.png';
         var data = {name: inputs[0].value, imgSrc : image, money: 1000000};
 
         newProfile = new Profile(data);
@@ -42,6 +48,7 @@ function ViewModel(){
         localStorage.initialProfiles = JSON.stringify(initialProfiles);
     })
 
+    //Display the profiles menu and hide the form
     cancelarButton.addEventListener("click", function() {
         formElements.style.display = "none";
         profilesDiv.style.display = "flex";
@@ -50,9 +57,11 @@ function ViewModel(){
 }
 
 function init(){
+    //Set the new currency of the game
     const PKR = value => currency(value, { precision: 2, symbol: '♠' });
     this.profileList = ko.observableArray();
 
+    //Creates the default profiles if there´s no profile in the localStorage
     if (!localStorage.initialProfiles){  
         initialProfiles.forEach(function(item){
             this.profileList.push(new Profile(item));
@@ -62,6 +71,7 @@ function init(){
         initialProfiles = JSON.parse(localStorage.initialProfiles)
     }
 
+    //Rounds the quantity of money
     changeToCurrency = function(money){
         if(money > 999 && money < 1000000){
             return PKR(money/1000).format() + 'K'; // convert money into Thousands
