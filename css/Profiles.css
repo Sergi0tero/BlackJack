@@ -47,7 +47,10 @@ body{
     max-height: 30%;
     overflow-y:scroll;
     background-color: rgb(12, 68, 8);
-    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /*Buttons*/
