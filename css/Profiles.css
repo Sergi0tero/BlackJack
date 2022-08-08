@@ -30,9 +30,6 @@ body{
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
-    align-items: center;
-    align-content: center;
-    text-align: center;
     
     background-color: rgb(12, 68, 8);
     border-style:  solid solid dashed solid;
@@ -57,11 +54,9 @@ body{
 
 .buttonContainer{
   text-align: center;
-  position: relative;
 }
 
 .btn{
-    margin-top: 5%;
     justify-content: center;
     width: fit-content;
     position: relative;
