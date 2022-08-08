@@ -12,6 +12,7 @@
     <div id = "container">
         <h1 id="title">♣ BlackJack ♠</h1>
         <h1> Por favor, elija un perfil</h1>
+
         <div id = "profilesDiv" data-bind="foreach: initialProfiles">
             <a class = "profile" href = "juego.html" onclick="">
                 <img data-bind = "attr : {src : imgSrc}">
@@ -19,24 +20,25 @@
                 <figcaption data-bind="text: changeToCurrency(money)"></figcaption>
             </a>
         </div>
+
         <div class = "buttonContainer">
             <button class = btn> Agregar nuevo perfil </button>
         </div>
-        <div class="form-popup" id="myForm">
-            <form class="form-container">
-                <h1>Crear perfil</h1>
+    </div>
+    
+    <div id="myForm">
+        <form class="form-container" >
+            <h1>Crear perfil</h1>
+        
+            <label for="Nickname"><b>Nickname</b></label>
+            <input type="text" placeholder="Escribir Nickname" name="nickname" required></input>
             
-                <label for="Nickname"><b>Nickname</b></label>
-                <input type="text" placeholder="Escribir Nickname" name="nickname" required></input>
-                
-                <label for="Imagen"><b>Password</b></label>
-                <input type="url" placeholder="Poner URL de la imagen" name="Imagen">
-                <div id = "acceptCancel" class="buttonContainer">
-                    <button type = "submit" class="btn crear">Crear</button>
-                    <button type = "button" class="btn cancel">Cancelar</button>
-                </div>
-            </form>
-        </div>
+            <label for="Imagen"><b>Imagen</b></label>
+            <input type="url" placeholder="Poner URL de la imagen" name="Imagen">
+            
+            <button type = "submit" class="btn crear">Crear</button>
+            <button type = "button" class="btn cancel">Cancelar</button>
+        </form>
     </div>
     <script src = "../js/lib/knockout.js"></script>
     <script src = "../js/lib/jquery.js"></script>

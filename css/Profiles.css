@@ -120,11 +120,15 @@ body{
 }
 
 /*Pop up form*/
+#myForm {
+  border:orange;
+  display: none;
+}
+
 .form-container {
   background-color: rgb(8, 46, 6);
   font-family: 'Nanum Myeongjo', serif;
   position: absolute;
-  display: none;
   width: 50%;
   transform: translate(-50%, -50%);
   top: 50%;
@@ -132,6 +136,7 @@ body{
   justify-content: center;
   padding: 1%;
   border-radius: 1%;
+  text-align: center;
 }.form-container input {
   font-family: 'Nanum Myeongjo', serif;
   background-color: rgb(12, 68, 8);
@@ -142,6 +147,8 @@ body{
   margin-top: 2%;
   margin-bottom: 2%;
   border: none;
+}.form-container label{
+  text-align: left;
 }.form-container input:focus{
   background-color: #ddd;
   outline: none;

@@ -1,35 +1,67 @@
- 
  var initialProfiles = [
     {
-    money : 1000000,
     name : 'Alberto',
-    imgSrc : '../img/usr/user.png'
+    imgSrc : '../img/usr/user.png',
+    money : 1000000
     },
     {
-    money : 120200,
     name : 'Alberta',
-    imgSrc : '../img/usr/user.png'
+    imgSrc : '../img/usr/user.png',
+    money : 120200
     }
 ]
 
-var Profile = function(data){
+function Profile(data){
     this.name = data.name;
     this.money = data.money;
     this.imgSrc = data.imgSrc;
-    if (!localStorage.initialProfiles){
+}
+
+function ViewModel(){
+    var cancelarButton = document.querySelector(".cancel");
+    var crearButton = document.querySelector(".crear");
+    var agregarDiv = document.querySelector(".buttonContainer");
+    var agregarButton = agregarDiv.querySelector("button");
+    var profilesDiv = document.querySelector("#profilesDiv");
+    formElements = document.querySelector("#myForm");
+
+    agregarButton.addEventListener("click", function(){
+        agregarButton.style.display = "none";
+        profilesDiv.style.display = "none";
+        formElements.style.display = "block";
+    })
+
+    crearButton.addEventListener("click", function(){
+        inputs = formElements.getElementsByTagName("input");
+        
+        var image = inputs[1].value != "" ? inputs[1].value : '../img/usr/user.png';
+        var data = {name: inputs[0].value, imgSrc : image, money: 1000000};
+
+        newProfile = new Profile(data);
+        initialProfiles.push(data);
         localStorage.initialProfiles = JSON.stringify(initialProfiles);
+    })
+
+    cancelarButton.addEventListener("click", function() {
+        formElements.style.display = "none";
+        profilesDiv.style.display = "flex";
+        agregarButton.style.display = "inline-block";
+    });
+}
+
+function init(){
+    const PKR = value => currency(value, { precision: 2, symbol: '♠' });
+    this.profileList = ko.observableArray();
+
+    if (!localStorage.initialProfiles){  
+        initialProfiles.forEach(function(item){
+            this.profileList.push(new Profile(item));
+        });
+        localStorage.initialProfiles = JSON.stringify(this.initialProfiles);
     } else{
         initialProfiles = JSON.parse(localStorage.initialProfiles)
     }
 
-}
-
-var ViewModel = function(){
-    const PKR = value => currency(value, { precision: 2, symbol: '♠' });
-    this.profileList = ko.observableArray();
-    initialProfiles.forEach(function(item){
-        this.profileList.push(new Profile(item))
-    });
     changeToCurrency = function(money){
         if(money > 999 && money < 1000000){
             return PKR(money/1000).format() + 'K'; // convert money into Thousands
@@ -42,24 +74,8 @@ var ViewModel = function(){
         }
         return PKR(money).format();
     }
-    var agregarCancelar = document.querySelector("#acceptCancel");
-    var agregarDiv = document.querySelector(".buttonContainer");
-    var agregarButton = agregarDiv.querySelector("button");
-    var profilesDiv = document.querySelector("#profilesDiv");
-
-    agregarButton.addEventListener("click", function(){
-        agregarButton.style.display = "none";
-        profilesDiv.style.display = "none";
-        document.querySelector(".form-container").style.display = "block";
-    })
-
-    
-    agregarCancelar.addEventListener("click", function() {
-        document.querySelector(".form-container").style.display = "none";
-        profilesDiv.style.display = "flex";
-        agregarButton.style.display = "inline-block";
-    });
+    new ViewModel();
 }
 
 
-ko.applyBindings(ViewModel());
+ko.applyBindings(init());
