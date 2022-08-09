@@ -1,9 +1,7 @@
 var init = function(){
-    const queryString = window.location.search;
-    console.log(queryString);
-    const urlParams = new URLSearchParams(queryString);
-    const product = urlParams.get('profile')
-    console.log(product);
+    actualProfile = JSON.parse(localStorage.actualProfile);
+    var profileName = actualProfile.name
+    var imgSrc = actualProfile.imgSrc
+    var money = actualProfile.money
 }
-
 ko.applyBindings(init());

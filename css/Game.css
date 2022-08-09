@@ -2,7 +2,44 @@ body{
     background-color: rgb(3, 97, 73);
 }
 
+#container{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+#table{
+    height: 80%;
+    width: 90%;
+    margin: auto;
+    
+    background-color: rgb(12, 68, 8);
+
+    border-style:  solid solid dashed solid;
+    border-width: 10px;
+    border-color: rgb(129, 85, 41);
+    border-bottom-left-radius:60%;
+    border-bottom-right-radius:60%;
+}
+
+/*Cards*/
+
 .card {
-    width: 67;
-    height: 96;
+    width: 67px;
+    height: 96px;
+}
+
+.cardSlot{
+    position: relative;
+    transform: translate(-50%, -50%);
+    top: 70%;
+    left: 50%;
+
+    width: 67px;
+    height: 96px;
+    background-color: rgba(255, 255, 255, 0.616);
+
+    border-radius: 5%;
+    border: 3px rgb(0, 0, 0) dashed;
 }

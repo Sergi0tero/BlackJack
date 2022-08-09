@@ -21,10 +21,8 @@ body{
 }
 
 #container{
-    border-bottom-left-radius:40%;
-    border-bottom-right-radius:40%;
     position: absolute;
-    flex-direction: column;
+
     height: 90%;
     width: 90%;
     transform: translate(-50%, -50%);
@@ -35,18 +33,22 @@ body{
     border-style:  solid solid dashed solid;
     border-width: 10px;
     border-color: rgb(129, 85, 41);
+    border-bottom-left-radius:40%;
+    border-bottom-right-radius:40%;
 }
 
 #profilesDiv{
     display: flex;
     flex-wrap: wrap;
-    position: relative;
     justify-content: center;
+    
+    overflow-y:scroll;
+    background-color: rgb(12, 68, 8);
+    
     grid-gap: 1%;
     width: 45%;
     max-height: 30%;
-    overflow-y:scroll;
-    background-color: rgb(12, 68, 8);
+
     margin-top: 5%;
     margin-bottom: 5%;
     margin-left: auto;

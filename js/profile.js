@@ -88,8 +88,9 @@ var init = function(){
     }
 
     prueba = function(clicked){
-        console.log(clicked);
-        window.location.href = "html/juego.html?profile="+ JSON.stringify(clicked);
+        //Cambiamos la pestaña y guardamos el perfil seleccionado
+        window.location.href = "html/juego.html";
+        localStorage.actualProfile = JSON.stringify(clicked);
     }
 
     new ViewModel();
