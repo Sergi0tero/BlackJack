@@ -13,14 +13,14 @@
     }
 ]
 
-//Createa a new profile using an object
-function Profile(data){
+//Createa a new profile using the data given
+var Profile = function(data){
     this.name = data.name;
     this.money = data.money;
     this.imgSrc = data.imgSrc;
 }
 
-function ViewModel(){
+var ViewModel = function(){
     var cancelarButton = document.querySelector(".cancel");
     var crearButton = document.querySelector(".crear");
     var agregarDiv = document.querySelector(".buttonContainer");
@@ -38,14 +38,16 @@ function ViewModel(){
     //Creates a new profile based on the form inputs
     crearButton.addEventListener("click", function(){
         inputs = formElements.getElementsByTagName("input");
-        
-        // If the image's url input is empty, the default image will be set on the profile
-        var image = inputs[1].value != "" ? inputs[1].value : 'img/usr/user.png';
-        var data = {name: inputs[0].value, imgSrc : image, money: 1000000};
+        //inputs[0] = name, inputs[1] = image URL
+        if (!inputs[0]){
+            // If the image's url input is empty, the default image will be set on the profile
+            var image = inputs[1].value != "" ? inputs[1].value : 'img/usr/user.png';
+            var data = {name: inputs[0].value, imgSrc : image, money: 1000000};
 
-        newProfile = new Profile(data);
-        initialProfiles.push(data);
-        localStorage.initialProfiles = JSON.stringify(initialProfiles);
+            newProfile = new Profile(data);
+            initialProfiles.push(data);
+            localStorage.initialProfiles = JSON.stringify(initialProfiles);
+        }
     })
 
     //Display the profiles menu and hide the form
@@ -56,7 +58,7 @@ function ViewModel(){
     });
 }
 
-function init(){
+var init = function(){
     //Set the new currency of the game
     const PKR = value => currency(value, { precision: 2, symbol: '♠' });
     this.profileList = ko.observableArray();
@@ -84,8 +86,13 @@ function init(){
         }
         return PKR(money).format();
     }
+
+    prueba = function(clicked){
+        console.log(clicked);
+        window.location.href = "html/juego.html?profile="+ JSON.stringify(clicked);
+    }
+
     new ViewModel();
 }
-
 
 ko.applyBindings(init());

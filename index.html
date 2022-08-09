@@ -13,8 +13,8 @@
         <h1 id="title">♣ BlackJack ♠</h1>
         <h1> Por favor, elija un perfil</h1>
         <div id = "profilesDiv" data-bind="foreach: initialProfiles">
-            <a class = "profile" href = "juego.html" onclick="">
-                <img data-bind = "attr : {src : imgSrc}">
+            <a class = "profile" href="html/juego.html" data-bind= "click : prueba">
+                <img data-bind = "attr : {src : imgSrc}"></img>
                 <figcaption data-bind = "text: name"></figcaption>
                 <figcaption data-bind="text: changeToCurrency(money)"></figcaption>
             </a>
@@ -42,7 +42,6 @@
     <script src = "js/lib/knockout.js"></script>
     <script src = "js/lib/jquery.js"></script>
     <script src = "js/lib/currency.js"></script>
-    <script src = "js/game.js"></script>
     <script src = "js/profile.js"></script>
 </body>
 </html>
