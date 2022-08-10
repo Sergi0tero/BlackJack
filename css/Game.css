@@ -30,10 +30,10 @@ body{
 
 /*Cards*/
 
-.cards{
-    position: relative;
+.card{
+    position: absolute;
     transform: translate(-50%, -50%);
-    top: 80%;
+    top: 60%;
     left: 50%;
     text-align: center;
     width: fit-content;
