@@ -1,24 +1,29 @@
 body{
     background-color: rgb(3, 97, 73);
+    background-image: url("../img/fondo.jpg");
+    background-repeat:repeat;
+
 }
 
 #container{
     position: absolute;
-    height: 100%;
-    width: 100%;
-    text-align: center;
+    height: 96%;
+    width: 90%;
+    left: 50%;
+    transform: translate(-50%);
 }
 
 #table{
     height: 80%;
     width: 90%;
     margin: auto;
+    margin-bottom: 5%;
     
     background-color: rgb(12, 68, 8);
 
     border-style:  solid solid dashed solid;
     border-width: 10px;
-    border-color: rgb(129, 85, 41);
+    border-color: rgb(0, 0, 0);
     border-bottom-left-radius:60%;
     border-bottom-right-radius:60%;
 }
@@ -33,7 +38,7 @@ body{
 .cardSlot{
     position: relative;
     transform: translate(-50%, -50%);
-    top: 70%;
+    top: 80%;
     left: 50%;
 
     width: 67px;
@@ -48,4 +53,11 @@ body{
 
 .chipContainer{
     text-align: center;
+    width: fit-content;
+
+    margin: auto;
+    
+    background-color: rgb(85, 55, 25);
+    
+    border: 3px rgb(61, 39, 17) solid;
   }

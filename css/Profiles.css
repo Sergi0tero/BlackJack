@@ -18,6 +18,8 @@
 
 body{
     background-color: rgb(3, 97, 73);
+    background-image: url("../img/fondo.jpg");
+    background-repeat:repeat;
 }
 
 #container{
@@ -32,7 +34,7 @@ body{
     background-color: rgb(12, 68, 8);
     border-style:  solid solid dashed solid;
     border-width: 10px;
-    border-color: rgb(129, 85, 41);
+    border-color: rgb(0, 0, 0);
     border-bottom-left-radius:40%;
     border-bottom-right-radius:40%;
 }

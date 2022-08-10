@@ -3,5 +3,9 @@ var init = function(){
     var profileName = actualProfile.name;
     var imgSrc = actualProfile.imgSrc;
     var money = actualProfile.money;
+    prueba = function(){
+        console.log("a");
+    }
 }
+
 ko.applyBindings(init());
