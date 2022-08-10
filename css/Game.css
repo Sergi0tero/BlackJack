@@ -43,3 +43,9 @@ body{
     border-radius: 5%;
     border: 3px rgb(0, 0, 0) dashed;
 }
+
+/* Chips */
+
+.chipContainer{
+    text-align: center;
+  }
