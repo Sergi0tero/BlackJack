@@ -17,7 +17,7 @@ body{
     height: 80%;
     width: 90%;
     margin: auto;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
     
     background-color: rgb(12, 68, 8);
 
@@ -30,9 +30,12 @@ body{
 
 /*Cards*/
 
-.card {
-    width: 67px;
-    height: 96px;
+.card1{
+    position: relative;
+    transform: translate(-50%, -50%);
+    top: 80%;
+    left: 50%;
+
 }
 
 .cardSlot{
@@ -46,10 +49,17 @@ body{
     background-color: rgba(255, 255, 255, 0.616);
 
     border-radius: 5%;
-    border: 3px rgb(0, 0, 0) dashed;
+    /*border: 3px rgb(0, 0, 0) dashed;*/
+    
 }
 
 /* Chips */
+
+.chip{
+    cursor:pointer;
+    width: fit-content;
+    height: fit-content;
+}
 
 .chipContainer{
     text-align: center;
@@ -57,7 +67,7 @@ body{
 
     margin: auto;
     
-    background-color: rgb(85, 55, 25);
+    background-color: rgb(48, 30, 13);
     
-    border: 3px rgb(61, 39, 17) solid;
-  }
+    border: 3px rgb(43, 26, 10) solid;
+}
