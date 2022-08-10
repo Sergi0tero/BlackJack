@@ -38,6 +38,14 @@ body{
 
 }
 
+.card2{
+    position: relative;
+    transform: translate(-100%, -50%);
+    top: 80%;
+    left: 50%;
+
+}
+
 .cardSlot{
     position: relative;
     transform: translate(-50%, -50%);
