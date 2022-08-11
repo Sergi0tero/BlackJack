@@ -7,7 +7,7 @@ body{
 
 #container{
     position: absolute;
-    height: 96%;
+    height: 100%;
     width: 90%;
     left: 50%;
     transform: translate(-50%);
@@ -27,6 +27,10 @@ body{
     border-bottom-left-radius:60%;
     border-bottom-right-radius:60%;
 }
+
+.buttonContainer{
+    text-align: center;
+  }
 
 /*Cards*/
 
@@ -64,11 +68,17 @@ body{
 
 .chipContainer{
     text-align: center;
-    width: fit-content;
+    width: 100%;
+    height: 10%;
+    bottom: 0;
+
+    position: absolute;
+    left: 0;
+    bottom: 0; 
 
     background-color: rgb(106, 60, 55);
 
     margin: auto;
-    
+
     border: 3px rgb(43, 26, 10) solid;
 }
