@@ -66,6 +66,14 @@ body{
     height: fit-content;
 }
 
+.money{
+    height: 100%;
+    width: 20%;
+    left: 0;
+    
+    background-color: rgb(43, 26, 10);
+}
+
 .chipContainer{
     text-align: center;
     width: 100%;
