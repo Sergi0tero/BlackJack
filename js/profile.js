@@ -39,13 +39,14 @@ var ViewModel = function(){
     crearButton.addEventListener("click", function(){
         inputs = formElements.getElementsByTagName("input");
         //inputs[0] = name, inputs[1] = image URL
-        if (!inputs[0]){
+        if (!inputs[0].value == ""){
             // If the image's url input is empty, the default image will be set on the profile
             var image = inputs[1].value != "" ? inputs[1].value : 'img/usr/user.png';
             var data = {name: inputs[0].value, imgSrc : image, money: 1000000};
 
             newProfile = new Profile(data);
             initialProfiles.push(data);
+            console.log(initialProfiles);
             localStorage.initialProfiles = JSON.stringify(initialProfiles);
         }
     })
