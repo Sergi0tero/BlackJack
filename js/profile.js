@@ -26,6 +26,7 @@ var ViewModel = function(){
     var agregarDiv = document.querySelector(".buttonContainer");
     var agregarButton = agregarDiv.querySelector("button");
     var profilesDiv = document.querySelector("#profilesDiv");
+    var resetearPerfilesButton = document.getElementById("reset");
     formElements = document.querySelector("#myForm");
 
     //Hide the profiles menu and display the new profile form
@@ -33,6 +34,11 @@ var ViewModel = function(){
         agregarButton.style.display = "none";
         profilesDiv.style.display = "none";
         formElements.style.display = "block";
+    })
+
+    resetearPerfilesButton.addEventListener("click", function(){
+        localStorage.clear();
+        location.reload();
     })
 
     //Creates a new profile based on the form inputs
