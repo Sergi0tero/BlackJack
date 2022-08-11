@@ -19,7 +19,9 @@
                 <button data-bind = "click : añadirCarta"> Añadir carta </button>
             </div>
         </div>
+        
         <div class = "chipContainer">
+            <div class = "money" data-bind="text : changeToCurrency()"></div>
             <img class = "chip" src = "../img/chips/png/10chip.png" data-bind = "click : prueba">
             <img class = "chip" src = "../img/chips/png/50chip.png">
             <img class = "chip" src = "../img/chips/png/100chip.png">
@@ -27,6 +29,7 @@
         </div>
     </div>
     <script src = "../js/lib/knockout.js"></script>
+    <script src = "../js/lib/currency.js"></script>
     <script src = "../js/game.js"></script>
 </body>
 </html>
