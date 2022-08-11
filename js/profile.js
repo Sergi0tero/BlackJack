@@ -32,6 +32,7 @@ var ViewModel = function(){
     //Hide the profiles menu and display the new profile form
     agregarButton.addEventListener("click", function(){
         agregarButton.style.display = "none";
+        resetearPerfilesButton.style.display = "none";
         profilesDiv.style.display = "none";
         formElements.style.display = "block";
     })
@@ -62,6 +63,7 @@ var ViewModel = function(){
         formElements.style.display = "none";
         profilesDiv.style.display = "flex";
         agregarButton.style.display = "inline-block";
+        resetearPerfilesButton.style.display = "inline-block";
     });
 }
 
