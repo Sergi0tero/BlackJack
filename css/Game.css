@@ -34,13 +34,12 @@ body{
 
 /*Cards*/
 
-.card{
+.cards{
     position: absolute;
     transform: translate(-50%, -50%);
     top: 60%;
     left: 50%;
     text-align: center;
-    width: fit-content;
 }
 
 .cardSlot{
@@ -74,7 +73,6 @@ body{
     
     background-color: rgb(43, 26, 10);
 
-    font-size: 3em;
     color: rgb(255, 255, 255);
 }
 

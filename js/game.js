@@ -52,9 +52,11 @@ var init = function () {
         }
         availableCards[newCard]["available"] -= 1;
         //Saca una carta del tipo seleccionado al azar
-        newCardUrl = availableCards[newCard]["availableURL"][Math.floor(Math.random()*availableCards[newCard]["availableURL"].length)]
+        urlIndex = Math.floor(Math.random()*availableCards[newCard]["availableURL"].length);
+        newCardUrl = availableCards[newCard]["availableURL"][urlIndex];
+        availableCards[newCard]["availableURL"].splice(urlIndex, 1);
         this.cardsInTable.push({card : newCard, cardSrc : newCardUrl});
-        console.log(cardsInTable)
+        console.log(cardsInTable);
     }
 }
 
