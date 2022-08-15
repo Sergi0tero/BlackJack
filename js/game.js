@@ -43,22 +43,6 @@ var game = function () {
         return PKR(observableMoney()).format();
     }
 
-    pedirCarta = function(){
-        //Saca un tipo de carta al azar
-        newCard = availableCardsKeys[Math.floor(Math.random()*availableCardsKeys.length)];
-        //verifica que todavia queden cartas de ese tipo
-        if (availableCards[newCard]["available"] == 1){
-            availableCardsKeys.splice(availableCardsKeys.indexOf(newCard), 1);
-        }
-        availableCards[newCard]["available"] -= 1;
-        //Saca una carta del tipo seleccionado al azar
-        urlIndex = Math.floor(Math.random()*availableCards[newCard]["availableURL"].length);
-        newCardUrl = availableCards[newCard]["availableURL"][urlIndex];
-        availableCards[newCard]["availableURL"].splice(urlIndex, 1);
-        this.playerCards.push({card : newCard, cardSrc : newCardUrl});
-        //console.log(playerCards());
-    }
-
     //Botones de apuestas
     betTen = function(){
         var moneyAmount = getMoneyAmount(10);
@@ -114,7 +98,19 @@ var game = function () {
         console.log("cancela");
     }
     pedirCarta = function(){
-        console.log("pide");
+        //Saca un tipo de carta al azar
+        newCard = availableCardsKeys[Math.floor(Math.random()*availableCardsKeys.length)];
+        //verifica que todavia queden cartas de ese tipo
+        if (availableCards[newCard]["available"] == 1){
+            availableCardsKeys.splice(availableCardsKeys.indexOf(newCard), 1);
+        }
+        availableCards[newCard]["available"] -= 1;
+        //Saca una carta del tipo seleccionado al azar
+        urlIndex = Math.floor(Math.random()*availableCards[newCard]["availableURL"].length);
+        newCardUrl = availableCards[newCard]["availableURL"][urlIndex];
+        availableCards[newCard]["availableURL"].splice(urlIndex, 1);
+        this.playerCards.push({card : newCard, cardSrc : newCardUrl});
+        //console.log(playerCards());
     }
     terminarJuego = function(){
         console.log("termina");
