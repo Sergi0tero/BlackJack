@@ -9,28 +9,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class = "info">
+        <h1 data-bind = "text : actualProfile.name"></h1>
+        <h2 data-bind = "text : changeToCurrency()"></h2>
+    </div>
     <div id = "container">
         <div id="table">
-            <div hidden="hidden" class="cardSlot"></div>
-            <div id = "jugador" class="cards" data-bind="foreach: cardsInTable">
-                <img data-bind = "attr : {src : cardSrc}">
-            </div>
-            <div id = "mesa" class="cards" data-bind="foreach: cardsInTable">
+            <div class="cardSlot"></div>
+            <div class="cards usuario" data-bind="foreach: playerCards">
                 <img data-bind = "attr : {src : cardSrc}">
             </div>
             <div class = "buttonContainer">
-                <button data-bind = "click : añadirCarta"> Añadir carta </button>
+                <button class = "btn cancelar" data-bind = "click : cancelarApuesta"> Cancelar </button>
+                <button class = "btn iniciar" data-bind = "click : confirmarApuesta"> Confirmar apuesta </button>
+                <button class = "btn terminar" data-bind = "click : terminarJuego"> Terminar </button>
+                <button class = "btn pedir" data-bind = "click : pedirCarta"> Pedir </button>
             </div>
         </div>
         
         <div class = "chipContainer">
-            <div class = "money">
+            <div id = "money">
                 <h1 data-bind="text : changeToCurrency()"></h1>
             </div>
-            <img class = "chip" src = "../img/chips/png/10chip.png" data-bind = "click : prueba">
-            <img class = "chip" src = "../img/chips/png/50chip.png">
-            <img class = "chip" src = "../img/chips/png/100chip.png">
-            <img class = "chip" src = "../img/chips/png/ALLINchip.png">
+            <img class = "chip" src = "../img/chips/png/10chip.png" data-bind = "click : betTen">
+            <img class = "chip" src = "../img/chips/png/50chip.png" data-bind = "click : betFifty">
+            <img class = "chip" src = "../img/chips/png/100chip.png" data-bind = "click : betHundred">
+            <img class = "chip" src = "../img/chips/png/ALLINchip.png" data-bind = "click : betAllIn">
         </div>
     </div>
     <script src = "../js/lib/knockout.js"></script>
