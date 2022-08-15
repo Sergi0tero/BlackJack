@@ -134,6 +134,10 @@ var game = function () {
         localStorage.actualProfile = JSON.parse(this.actualProfile);
     }
 
+    getBet = function(){
+        return PKR(betInTable()).format();
+    }
+
     //Devuelve la cantidad de la apuesta dependiendo cuanto dinero tiene el usuario
     getMoneyAmount = function(bet){
         if(this.observableMoney() <= 100){

@@ -73,7 +73,7 @@ body{
 .pedir, .iniciar {
     background-color: green;
 }.pedir:hover, .iniciar:hover {
-    background-color: rgb(4, 99, 4);
+    background-color: rgb(2, 77, 2);
 }
 .cancelar, .terminar {
     background-color: red;
