@@ -93,6 +93,8 @@ var game = function () {
         console.log("confirma");
     }
     cancelarApuesta = function(){
+        this.observableMoney(this.actualProfile.money);
+        this.betInTable(0);
         document.querySelector(".iniciar").style.display = "none";
         document.querySelector(".cancelar").style.display = "none";
         console.log("cancela");
