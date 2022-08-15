@@ -27,6 +27,10 @@ var game = function () {
     this.dealerCards = ko.observableArray();
     this.observableMoney = ko.observable(actualProfile.money);
     this.betInTable = ko.observable(0);
+    this.userPoints = [0];
+    this.dealerPoints = [];
+    this.userTotal = 0;
+    this.dealerTotal = 0;
 
     const PKR = value => currency(value, { precision: 2, symbol: '♠' });
 
@@ -112,12 +116,33 @@ var game = function () {
         newCardUrl = availableCards[newCard]["availableURL"][urlIndex];
         availableCards[newCard]["availableURL"].splice(urlIndex, 1);
         this.playerCards.push({card : newCard, cardSrc : newCardUrl});
+        //Si la carta es un As, se guardan ambos valores
+        if (newCard == "A" && userPoints.length == 1){
+            this.userPoints[1] = this.userPoints[0] + availableCards[newCard]["value"][1];
+            this.userPoints[0] = this.userPoints[0] + availableCards[newCard]["value"][0];
+            console.log(this.userPoints);
+        } else if (userPoints.length > 1){
+            this.userPoints[1] += availableCards[newCard]["value"][0];
+            this.userPoints[0] += availableCards[newCard]["value"][0];
+            console.log(this.userPoints);
+        } else {   
+            this.userPoints[0] = this.userPoints[0] + availableCards[newCard]["value"][0];
+            console.log(userPoints[0]);
+        }
+        if (userPoints[0] > 21){
+            console.log("entra");
+            lose();
+        }
         //console.log(playerCards());
     }
     terminarJuego = function(){
         console.log("termina");
+        beginDealer();
     }
 
+    beginDealer = function(){
+
+    }
     //Gana o pierde el usuario
 
     win = function(){
@@ -127,9 +152,16 @@ var game = function () {
     }
 
     lose = function(){
-        this.observableMoney(observableMoney() - betInTable());
         this.actualProfile.money = observableMoney();
-        localStorage.actualProfile = JSON.parse(this.actualProfile);
+        localStorage.actualProfile = JSON.stringify(this.actualProfile);
+        this.initialProfiles = JSON.parse(localStorage.initialProfiles);
+        this.initialProfiles.forEach(element => {
+            if (element["name"] == actualProfile["name"]){
+                element["money"] = observableMoney();
+                localStorage.initialProfiles = JSON.stringify(this.initialProfiles);
+            }
+        });
+        location.reload();
     }
 
     getBet = function(){
