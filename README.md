@@ -53,7 +53,7 @@ Los valores de las cartas son lo siguientes:
 
 Una vez se sienta comodo con su mano, debe dar al boton de terminar. Esto finalizara su turno e iniciara el de la mesa.
 
-Si al final del turno, el dealer tiene un puntaje mayor a su mano y menor a 21, el dealer abrá ganado.
+Si al final del turno, el dealer tiene un puntaje mayor a su mano y menor a 21, el dealer habra ganado.
 
 Si gana, se le dara el doble del dinero apostado. Si pierde, este dinero ira a la mesa.
 
