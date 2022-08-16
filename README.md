@@ -1,4 +1,4 @@
-# BLackJack
+# BlackJack
 Este es el tipico juego conocido de blackjack, con unas cartas y fichas hechas exclusivamente para este proograma. Ademas de contener un sistema funcional de creacion de 
 perfiles y economia para cada jugador.
 
