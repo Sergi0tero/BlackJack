@@ -32,21 +32,11 @@ var game = function () {
     this.userTotal = 0;
     this.dealerTotal = 0;
     this.terminado = false;
+    this.model = new model();
 
-    const PKR = value => currency(value, { precision: 2, symbol: '♠' });
+    PKR = value => currency(value, { precision: 2, symbol: '♠' });
 
-    changeToCurrency = function(){
-        if(observableMoney() > 999 && money < 1000000){
-            return PKR(observableMoney()/1000).format() + 'K'; // convert money into Thousands
-        }else if(observableMoney() >= 1000000){
-            return PKR(observableMoney()/1000000).format() + 'M'; // convert money into Millions
-        }else if(observableMoney() >= 1000000000){
-            return PKR(observableMoney()/1000000000).format() + 'B'; // convert money into Billions
-        }else if(observableMoney() >= 1000000000000){
-            return PKR(observableMoney()/1000000000000).format() + 'T'; // convert money into Trillions
-        }
-        return PKR(observableMoney()).format();
-    }
+    changeToCurrency = this.model.changeToCurrency(this.observableMoney(), this.PKR);
 
     //Botones de apuestas
     betTen = function(){
@@ -99,12 +89,14 @@ var game = function () {
         pedirCarta();
         pedirCarta();
     }
+
     cancelarApuesta = function(){
         this.observableMoney(this.actualProfile.money);
         this.betInTable(0);
         document.querySelector(".iniciar").style.display = "none";
         document.querySelector(".cancelar").style.display = "none";
     }
+
     pedirCarta = function(){
         //Saca un tipo de carta al azar
         newCard = availableCardsKeys[Math.floor(Math.random()*availableCardsKeys.length)];

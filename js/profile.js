@@ -96,7 +96,7 @@ var init = function(){
         return PKR(money).format();
     }
 
-    prueba = function(clicked){
+    juego = function(clicked){
         //Cambiamos la pestaña y guardamos el perfil seleccionado
         window.location.href = "html/juego.html";
         localStorage.actualProfile = JSON.stringify(clicked);
