@@ -16,7 +16,9 @@
     <div id = "container">
         <div id="table">
             <div class="cardSlot"></div>
-            
+            <div class="cards" data-bind="foreach: dealerCards">
+                <img class = "card" data-bind = "attr : {src : cardSrc}">
+            </div>
             <div class="cards usuario" data-bind="foreach: playerCards">
                 <img class = "card" data-bind = "attr : {src : cardSrc}">
             </div>

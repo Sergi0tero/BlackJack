@@ -28,9 +28,10 @@ var game = function () {
     this.observableMoney = ko.observable(actualProfile.money);
     this.betInTable = ko.observable(0);
     this.userPoints = [0];
-    this.dealerPoints = [];
+    this.dealerPoints = [0];
     this.userTotal = 0;
     this.dealerTotal = 0;
+    this.terminado = false;
 
     const PKR = value => currency(value, { precision: 2, symbol: '♠' });
 
@@ -115,53 +116,117 @@ var game = function () {
         urlIndex = Math.floor(Math.random()*availableCards[newCard]["availableURL"].length);
         newCardUrl = availableCards[newCard]["availableURL"][urlIndex];
         availableCards[newCard]["availableURL"].splice(urlIndex, 1);
-        this.playerCards.push({card : newCard, cardSrc : newCardUrl});
-        //Si la carta es un As, se guardan ambos valores
-        if (newCard == "A" && userPoints.length == 1){
-            this.userPoints[1] = this.userPoints[0] + availableCards[newCard]["value"][1];
-            this.userPoints[0] = this.userPoints[0] + availableCards[newCard]["value"][0];
-            console.log(this.userPoints);
-        } else if (userPoints.length > 1){
-            this.userPoints[1] += availableCards[newCard]["value"][0];
-            this.userPoints[0] += availableCards[newCard]["value"][0];
-            console.log(this.userPoints);
-        } else {   
-            this.userPoints[0] = this.userPoints[0] + availableCards[newCard]["value"][0];
-            console.log(userPoints[0]);
+        if (!terminado){
+            this.playerCards.push({card : newCard, cardSrc : newCardUrl});
+            //Si la carta es un As, se guardan ambos valores
+            if (newCard == "A" && userPoints.length == 1){
+                this.userPoints[1] = this.userPoints[0] + availableCards[newCard]["value"][1];
+                this.userPoints[0] = this.userPoints[0] + availableCards[newCard]["value"][0];
+                console.log(this.userPoints);
+            } else if (userPoints.length > 1){
+                this.userPoints[1] += availableCards[newCard]["value"][0];
+                this.userPoints[0] += availableCards[newCard]["value"][0];
+                console.log(this.userPoints);
+            } else {
+                this.userPoints[0] = this.userPoints[0] + availableCards[newCard]["value"][0];
+                console.log(userPoints[0]);
+            }
+            if (userPoints[0] > 21){
+                lose();
+            }
+        } else {
+            this.dealerCards.push({card : newCard, cardSrc : newCardUrl});
+            if (newCard == "A" && dealerPoints.length == 1){
+                this.dealerPoints[1] = this.dealerPoints[0] + availableCards[newCard]["value"][1];
+                this.dealerPoints[0] = this.dealerPoints[0] + availableCards[newCard]["value"][0];
+                console.log(this.dealerPoints);
+            } else if (dealerPoints.length > 1){
+                this.dealerPoints[1] += availableCards[newCard]["value"][0];
+                this.dealerPoints[0] += availableCards[newCard]["value"][0];
+                console.log(this.dealerPoints);
+            } else {
+                this.dealerPoints[0] = this.dealerPoints[0] + availableCards[newCard]["value"][0];
+                console.log(dealerPoints[0]);
+            }
+            if (dealerPoints[0] > 21){
+                win();
+            }
+            console.log(dealerPoints);
         }
-        if (userPoints[0] > 21){
-            console.log("entra");
-            lose();
-        }
+        
         //console.log(playerCards());
     }
+
     terminarJuego = function(){
         console.log("termina");
+        this.terminado = true;
+        if (userPoints.length > 1){
+            if (userPoints[1] > 21){
+                this.userTotal = userPoints[0];
+            } else {
+                this.userTotal = userPoints[1];
+            }
+        } else {
+            this.userTotal = this.userPoints[0];
+        }
+        console.log("user total " + this.userTotal);
+        document.querySelector(".pedir").style.display = "none";
+        document.querySelector(".terminar").style.display = "none";
         beginDealer();
     }
 
     beginDealer = function(){
-
+        while (this.dealerPoints[0] <= 16){
+            pedirCarta();
+        }
+        this.dealerTotal = dealerPoints[0];
+        if (dealerTotal <= 21){
+            console.log("dealerTotal " + this.dealerTotal + "userTotal " + this.userTotal + "boolean " + this.dealerTotal > this.userTotal);
+            if(this.dealerTotal > this.userTotal){
+                console.log("entro a que tiene mas que el juagdor");
+                console.log(dealerTotal);
+                lose();
+            } else {
+                console.log("entro a que tiene menos que el juagdor");
+                win();
+            }
+        }
     }
+
     //Gana o pierde el usuario
 
     win = function(){
-        this.observableMoney(observableMoney() + (betInTable() * 2));
-        this.actualProfile.money = observableMoney();
-        localStorage.actualProfile = JSON.parse(this.actualProfile);
+        setTimeout(function(){
+            this.observableMoney(observableMoney() + (betInTable() * 2));
+            this.actualProfile.money = observableMoney();
+            localStorage.actualProfile = JSON.stringify(this.actualProfile);
+            this.initialProfiles = JSON.parse(localStorage.initialProfiles);
+            this.initialProfiles.forEach(element => {
+                if (element["name"] == actualProfile["name"]){
+                    element["money"] = observableMoney();
+                    localStorage.initialProfiles = JSON.stringify(this.initialProfiles);
+                }
+            });
+            alert("ganaste pana");
+            location.reload();
+        }, 1500);
+        
     }
 
     lose = function(){
-        this.actualProfile.money = observableMoney();
-        localStorage.actualProfile = JSON.stringify(this.actualProfile);
-        this.initialProfiles = JSON.parse(localStorage.initialProfiles);
-        this.initialProfiles.forEach(element => {
-            if (element["name"] == actualProfile["name"]){
-                element["money"] = observableMoney();
-                localStorage.initialProfiles = JSON.stringify(this.initialProfiles);
-            }
-        });
-        location.reload();
+        setTimeout(function(){
+            this.actualProfile.money = observableMoney();
+            localStorage.actualProfile = JSON.stringify(this.actualProfile);
+            this.initialProfiles = JSON.parse(localStorage.initialProfiles);
+            this.initialProfiles.forEach(element => {
+                if (element["name"] == actualProfile["name"]){
+                    element["money"] = observableMoney();
+                    localStorage.initialProfiles = JSON.stringify(this.initialProfiles);
+                }
+            });
+            alert("perdiste pana");
+            location.reload();
+        }, 1000);
     }
 
     getBet = function(){

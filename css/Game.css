@@ -93,15 +93,17 @@ body{
     text-align: center;
     transform: translate(-50%);
     left: 50%;
-} 
+} .cards img {
+    height: 116px;
+    animation: voltea 1s linear;
+}
 
 .usuario {
     transform: translate(-50%, -50%);
     top: 60%;
-} .usuario img {
-    height: 116px;
-    animation: voltea 1s linear;
-}@keyframes voltea {
+}
+
+@keyframes voltea {
     0%{
         transform: rotateY(180deg);
     }
