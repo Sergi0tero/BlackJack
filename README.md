@@ -55,3 +55,11 @@ Una vez se sienta comodo con su mano, debe dar al boton de terminar. Esto finali
 Si al final del turno, el dealer tiene un puntaje mayor a su mano y menor a 21, el dealer abrá ganado.
 
 Si gana, se le dara el doble del dinero apostado. Si pierde, este dinero ira a la mesa.
+
+## Diseño
+
+Esta aplicacion se hizo usando los siguientes diagramas. Estos fueron creados utilizando astah.
+
+![image](https://user-images.githubusercontent.com/98189066/184796733-cc2e935e-77a6-4e55-8c8a-4dfe4ddc3990.png)
+
+![image](https://user-images.githubusercontent.com/98189066/184796741-72f28a47-2bf3-410b-a5a0-ce20af4d13c9.png)
