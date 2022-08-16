@@ -56,7 +56,6 @@ var game = function () {
             document.querySelector(".cancelar").style.display = "inline-block";
             this.betInTable(this.betInTable() + moneyAmount);
             this.observableMoney(this.observableMoney() - moneyAmount);
-            console.log(this.betInTable());
         }
     }
     betFifty = function(){
@@ -66,7 +65,6 @@ var game = function () {
             document.querySelector(".cancelar").style.display = "inline-block";
             this.betInTable(this.betInTable() + moneyAmount);
             this.observableMoney(this.observableMoney() - moneyAmount);
-            console.log(this.betInTable());
         }
     }
     betHundred = function(){
@@ -76,7 +74,6 @@ var game = function () {
             document.querySelector(".cancelar").style.display = "inline-block";
             this.betInTable(this.betInTable() + moneyAmount);
             this.observableMoney(this.observableMoney() - moneyAmount);
-            console.log(this.betInTable());
         }
     }
     betAllIn = function(){
@@ -85,7 +82,6 @@ var game = function () {
             document.querySelector(".cancelar").style.display = "inline-block";
             this.betInTable(this.betInTable() + this.observableMoney());
             this.observableMoney(this.observableMoney() - this.observableMoney());
-            console.log(this.betInTable());
         }
     }
 
@@ -96,12 +92,10 @@ var game = function () {
         document.querySelector(".iniciar").style.display = "none";
         document.querySelector(".cancelar").style.display = "none";
         this.chips = document.getElementsByClassName("chip");
-        console.log(this.chips);
         for (i = 0; i < this.chips.length; i++){
             this.chips[i].style.display = "none";
         }
         document.querySelector("#money").style.width = "100%";
-        console.log("confirma");
         pedirCarta();
         pedirCarta();
     }
@@ -110,7 +104,6 @@ var game = function () {
         this.betInTable(0);
         document.querySelector(".iniciar").style.display = "none";
         document.querySelector(".cancelar").style.display = "none";
-        console.log("cancela");
     }
     pedirCarta = function(){
         //Saca un tipo de carta al azar
@@ -130,14 +123,11 @@ var game = function () {
             if (newCard == "A" && userPoints.length == 1){
                 this.userPoints[1] = this.userPoints[0] + availableCards[newCard]["value"][1];
                 this.userPoints[0] = this.userPoints[0] + availableCards[newCard]["value"][0];
-                console.log(this.userPoints);
             } else if (userPoints.length > 1){
                 this.userPoints[1] += availableCards[newCard]["value"][0];
                 this.userPoints[0] += availableCards[newCard]["value"][0];
-                console.log(this.userPoints);
             } else {
                 this.userPoints[0] = this.userPoints[0] + availableCards[newCard]["value"][0];
-                console.log(userPoints[0]);
             }
             if (userPoints[0] > 21){
                 lose();
@@ -147,26 +137,19 @@ var game = function () {
             if (newCard == "A" && dealerPoints.length == 1){
                 this.dealerPoints[1] = this.dealerPoints[0] + availableCards[newCard]["value"][1];
                 this.dealerPoints[0] = this.dealerPoints[0] + availableCards[newCard]["value"][0];
-                console.log(this.dealerPoints);
             } else if (dealerPoints.length > 1){
                 this.dealerPoints[1] += availableCards[newCard]["value"][0];
                 this.dealerPoints[0] += availableCards[newCard]["value"][0];
-                console.log(this.dealerPoints);
             } else {
                 this.dealerPoints[0] = this.dealerPoints[0] + availableCards[newCard]["value"][0];
-                console.log(dealerPoints[0]);
             }
             if (dealerPoints[0] > 21){
                 win();
             }
-            console.log(dealerPoints);
         }
-        
-        //console.log(playerCards());
     }
 
     terminarJuego = function(){
-        console.log("termina");
         this.terminado = true;
         if (userPoints.length > 1){
             if (userPoints[1] > 21){
@@ -177,7 +160,6 @@ var game = function () {
         } else {
             this.userTotal = this.userPoints[0];
         }
-        console.log("user total " + this.userTotal);
         document.querySelector(".pedir").style.display = "none";
         document.querySelector(".terminar").style.display = "none";
         beginDealer();
@@ -189,9 +171,7 @@ var game = function () {
         }
         this.dealerTotal = dealerPoints[0];
         if (dealerTotal <= 21){
-            console.log("dealerTotal " + this.dealerTotal + "userTotal " + this.userTotal + "boolean " + this.dealerTotal > this.userTotal);
             if(this.dealerTotal > this.userTotal){
-                console.log(dealerTotal);
                 lose();
             } else {
                 win();
