@@ -29,9 +29,10 @@ Cada una representa una parte de la cantidad de dinero del usuario. Por ejemplo,
 Podemos cancelar la apuesta presionando en el boton de cancelar, pero una vez demos click en confirmar apuesta no abra forma de volver y se ocultaran las fichas para
 apostar.
 
+Se le facilita la cantidad de dinero disponible en la parte superior izquierda de la pantalla.
+
 ## Juego
-Recien empezamos, tendremos dos cartas en la mesa, estas son las que empezaremos jugando. Nuestro objetivo es simple, evitar que el valor de nuestras cartas sea menor o 
-igual a 21, pero mayor al valor de las cartas del dealer.
+Recien empezamos, tendremos dos cartas en la mesa, estas son las que empezaremos jugando. Nuestro objetivo es simple, evitar que el valor de nuestras cartas sea menor o igual a 21, pero mayor al valor de las cartas del dealer.
 
 ![image](https://user-images.githubusercontent.com/98189066/184796233-01a8ac6a-ebea-4070-848d-1a722a00c690.png)
 
