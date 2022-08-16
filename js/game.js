@@ -102,6 +102,8 @@ var game = function () {
         }
         document.querySelector("#money").style.width = "100%";
         console.log("confirma");
+        pedirCarta();
+        pedirCarta();
     }
     cancelarApuesta = function(){
         this.observableMoney(this.actualProfile.money);
