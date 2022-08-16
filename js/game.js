@@ -95,6 +95,12 @@ var game = function () {
         document.querySelector(".terminar").style.display = "inline-block";
         document.querySelector(".iniciar").style.display = "none";
         document.querySelector(".cancelar").style.display = "none";
+        this.chips = document.getElementsByClassName("chip");
+        console.log(this.chips);
+        for (i = 0; i < this.chips.length; i++){
+            this.chips[i].style.display = "none";
+        }
+        document.querySelector("#money").style.width = "100%";
         console.log("confirma");
     }
     cancelarApuesta = function(){
@@ -183,11 +189,9 @@ var game = function () {
         if (dealerTotal <= 21){
             console.log("dealerTotal " + this.dealerTotal + "userTotal " + this.userTotal + "boolean " + this.dealerTotal > this.userTotal);
             if(this.dealerTotal > this.userTotal){
-                console.log("entro a que tiene mas que el juagdor");
                 console.log(dealerTotal);
                 lose();
             } else {
-                console.log("entro a que tiene menos que el juagdor");
                 win();
             }
         }
