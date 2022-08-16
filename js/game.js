@@ -111,30 +111,14 @@ var game = function () {
         availableCards[newCard]["availableURL"].splice(urlIndex, 1);
         if (!terminado){
             this.playerCards.push({card : newCard, cardSrc : newCardUrl});
-            //Si la carta es un As, se guardan ambos valores
-            if (newCard == "A" && userPoints.length == 1){
-                this.userPoints[1] = this.userPoints[0] + availableCards[newCard]["value"][1];
-                this.userPoints[0] = this.userPoints[0] + availableCards[newCard]["value"][0];
-            } else if (userPoints.length > 1){
-                this.userPoints[1] += availableCards[newCard]["value"][0];
-                this.userPoints[0] += availableCards[newCard]["value"][0];
-            } else {
-                this.userPoints[0] = this.userPoints[0] + availableCards[newCard]["value"][0];
-            }
+            console.log(userPoints);
+            this.model.pointsQuantity(userPoints, availableCards, newCard);
             if (userPoints[0] > 21){
                 lose();
             }
         } else {
             this.dealerCards.push({card : newCard, cardSrc : newCardUrl});
-            if (newCard == "A" && dealerPoints.length == 1){
-                this.dealerPoints[1] = this.dealerPoints[0] + availableCards[newCard]["value"][1];
-                this.dealerPoints[0] = this.dealerPoints[0] + availableCards[newCard]["value"][0];
-            } else if (dealerPoints.length > 1){
-                this.dealerPoints[1] += availableCards[newCard]["value"][0];
-                this.dealerPoints[0] += availableCards[newCard]["value"][0];
-            } else {
-                this.dealerPoints[0] = this.dealerPoints[0] + availableCards[newCard]["value"][0];
-            }
+            this.model.pointsQuantity(dealerPoints, availableCards, newCard);
             if (dealerPoints[0] > 21){
                 win();
             }
