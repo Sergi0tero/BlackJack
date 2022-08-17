@@ -1,4 +1,4 @@
-# BLackJack
+# BlackJack
 Este es el tipico juego conocido de blackjack, con unas cartas y fichas hechas exclusivamente para este proograma. Ademas de contener un sistema funcional de creacion de 
 perfiles y economia para cada jugador.
 
@@ -8,7 +8,7 @@ Lo primero con lo que nos encontramos es la siguiente pantalla:
 
 ![image](https://user-images.githubusercontent.com/98189066/184795312-e1b238bc-d332-4375-9d86-a8047a709122.png)
 
-Como podemos ver, se puede crear y eliminar pefiles si se desa, cuando añadimos un nuevo perfil nos pide cierta informacion:
+Como podemos ver, se puede crear y eliminar perfiles si se desa, cuando añadimos un nuevo perfil nos pide cierta informacion:
 
 ![image](https://user-images.githubusercontent.com/98189066/184795396-fbe6bc89-a172-4947-b407-a8c85d8d378f.png)
 
@@ -53,7 +53,7 @@ Los valores de las cartas son lo siguientes:
 
 Una vez se sienta comodo con su mano, debe dar al boton de terminar. Esto finalizara su turno e iniciara el de la mesa.
 
-Si al final del turno, el dealer tiene un puntaje mayor a su mano y menor a 21, el dealer abrá ganado.
+Si al final del turno, el dealer tiene un puntaje mayor a su mano y menor a 21, el dealer habra ganado.
 
 Si gana, se le dara el doble del dinero apostado. Si pierde, este dinero ira a la mesa.
 
