@@ -14,8 +14,10 @@ availableCards = {
     "K": { "value" : [10], "available": 4, "availableURL": ["../img/cards/png/K_Corazon.png", "../img/cards/png/K_Diamante.png", "../img/cards/png/K_Picas.png", "../img/cards/png/K_Trebol.png"] },
 }
 
-var game = function () {
+//comentario
 
+var game = function () {
+    this.prueba = ""
     localStorage.availableCards = JSON.stringify(availableCards);
     actualProfile = JSON.parse(localStorage.actualProfile);
 
